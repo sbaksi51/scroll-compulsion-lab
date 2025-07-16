@@ -8,7 +8,8 @@ const TrustedBrands = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-slide-up');
+            (entry.target as HTMLElement).style.opacity = '1';
+            (entry.target as HTMLElement).style.transform = 'translateY(0)';
           }
         });
       },
@@ -31,7 +32,7 @@ const TrustedBrands = () => {
   return (
     <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-6">
-        <div ref={sectionRef} className="text-center space-y-8 opacity-0">
+        <div ref={sectionRef} className="text-center space-y-8 opacity-0 transform translate-y-8 transition-all duration-1000">
           {/* Social Proof Header */}
           <div className="space-y-4">
             <p className="text-sm uppercase tracking-wide text-muted-foreground font-medium">

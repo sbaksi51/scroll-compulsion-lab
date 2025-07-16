@@ -14,7 +14,8 @@ const FAQSection = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-slide-up');
+            (entry.target as HTMLElement).style.opacity = '1';
+            (entry.target as HTMLElement).style.transform = 'translateY(0)';
           }
         });
       },
@@ -66,7 +67,7 @@ const FAQSection = () => {
   return (
     <section id="faq" className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
-        <div ref={sectionRef} className="max-w-4xl mx-auto space-y-12 opacity-0">
+        <div ref={sectionRef} className="max-w-4xl mx-auto space-y-12 opacity-0 transform translate-y-8 transition-all duration-1000">
           {/* Header */}
           <div className="text-center space-y-4">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground">

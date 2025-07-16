@@ -10,7 +10,8 @@ const CTASection = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-scale-in');
+            (entry.target as HTMLElement).style.opacity = '1';
+            (entry.target as HTMLElement).style.transform = 'translateY(0)';
           }
         });
       },
@@ -34,7 +35,7 @@ const CTASection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div ref={sectionRef} className="max-w-4xl mx-auto text-center space-y-8 opacity-0">
+        <div ref={sectionRef} className="max-w-4xl mx-auto text-center space-y-8 opacity-0 transform translate-y-8 transition-all duration-1000">
           {/* Urgency Badge */}
           <div className="inline-flex items-center space-x-2 bg-destructive/20 border border-destructive/30 rounded-full px-6 py-3 text-sm animate-pulse">
             <Clock className="w-4 h-4 text-destructive" />
