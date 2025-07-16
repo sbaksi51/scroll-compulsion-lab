@@ -11,7 +11,8 @@ const HeroSection = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-slide-up');
+            (entry.target as HTMLElement).style.opacity = '1';
+            (entry.target as HTMLElement).style.transform = 'translateY(0)';
           }
         });
       },
@@ -37,7 +38,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 pt-20 pb-16 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div ref={heroRef} className="space-y-8 opacity-0">
+          <div ref={heroRef} className="space-y-8 opacity-0 transform translate-y-8 transition-all duration-1000">
             {/* Hook Badge */}
             <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 text-sm">
               <Zap className="w-4 h-4 text-primary" />

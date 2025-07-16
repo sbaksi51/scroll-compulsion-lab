@@ -22,7 +22,8 @@ const FeaturesSection = () => {
             const cards = entry.target.querySelectorAll('.feature-card');
             cards.forEach((card, index) => {
               setTimeout(() => {
-                card.classList.add('animate-slide-up');
+                (card as HTMLElement).style.opacity = '1';
+                (card as HTMLElement).style.transform = 'translateY(0)';
               }, index * 150);
             });
           }
@@ -150,7 +151,7 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`feature-card opacity-0 group relative bg-card border border-border rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 hover:shadow-card hover:scale-105 cursor-pointer overflow-hidden`}
+              className={`feature-card opacity-0 transform translate-y-8 group relative bg-card border border-border rounded-2xl p-8 hover:border-primary/30 transition-all duration-700 hover:shadow-card hover:scale-105 cursor-pointer overflow-hidden`}
             >
               {/* Pattern Interrupt Background */}
               <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
